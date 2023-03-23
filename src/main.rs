@@ -43,6 +43,7 @@ fn main() {
 
                 let [name, email ,path, token ]: [String; 4] = data.split(" ").into_iter().map(|x| x.to_string()).collect::<Vec<String>>().try_into().unwrap();
         // PISIGMAz black... path token
+        println!("{};{};{};{} Datas ",&name,&email,&path,&token);
                 let mut repo_name_git = repo_name.trim().to_string() + &".git".to_owned();
                 println!("{} Repo Name Git", repo_name_git);
         // Git-Script.git
@@ -139,7 +140,6 @@ fn main() {
                 println!("You are using this program for the first time and you must enter datas ");
                 let dirl1 : String = "/home/".to_owned() + &{pc_name.trim()} + "/Documents/GitScriptLogs.txt";
                 let dirl1 : String = dirl1.trim().to_owned();
-                println!("{}",dirl1);
                 let mut file = File::create(&dirl1.trim()).unwrap();
                 println!(" GitHub Name, Email ,Dir Of File, Token ");
                 let mut data = String::new();
