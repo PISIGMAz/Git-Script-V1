@@ -44,7 +44,7 @@ fn main() {
                 let binding = "https://".to_owned()+&{name.clone()}+":"+{&token.trim()}+"@github.com/"+&{name.clone()}+"/"+{&repo_name_git.trim()};
                 let tokenf = binding.trim();
 
-                println!("Loading...");
+                println!("Loading ...");
 
 
                 Command::new("git")
@@ -104,9 +104,7 @@ fn main() {
                         .output()
                         .expect("Push Origin Main");
 
-                Command::new("Clear")
-                        .output()
-                        .expect("");
+                println!("Completed ...");
 
                 break;
                 
