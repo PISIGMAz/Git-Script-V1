@@ -39,35 +39,20 @@ fn main() {
                 let data = fs::read_to_string(&dirl1f)
 
                 .expect("Should have been able to read the file");
-        //-----------------------------------------------------------------------------------------------------------------------------
-
                 let [name, email ,path, token ]: [String; 4] = data.split(" ").into_iter().map(|x| x.to_string()).collect::<Vec<String>>().try_into().unwrap();
-        // PISIGMAz black... path token
-        println!("{};{};{};{} Datas ",&name,&email,&path,&token);
                 let mut repo_name_git = repo_name.trim().to_string() + &".git".to_owned();
-                println!("{} Repo Name Git", repo_name_git);
-        // Git-Script.git
-
                 let binding = "https://".to_owned()+&{name.clone()}+":"+{&token.trim()}+"@github.com/"+&{name.clone()}+"/"+{&repo_name_git.trim()};
-                println!("{} Binding", binding);
-        // Token
-
                 let tokenf = binding.trim();
-                println!("{} tokenf", tokenf);
-        // Token
 
-//
                 Command::new("git")
                         .args(["config", "--global" , "user.name" , &name.trim()])
                         .output()
                         .expect("Name");
-                        println!("Name Added {}",&name);
 
                 Command::new("git")
                         .args(["config", "--global", "user.email" , &email.trim()])
                         .output()
                         .expect("Email");
-                        println!("Email {}",&email);
 
                 let dir = Path::new(&path);
                 env::set_current_dir(&dir).is_ok();
@@ -76,62 +61,45 @@ fn main() {
                         .args(["init"])
                         .output()
                         .expect("Add .");
-                        println!("Git Init Added");
 
                 Command::new("git")
                         .args(["add ."])
                         .output()
                         .expect("Add .");
-                        println!("Git Add . Added");
                         
 
                 Command::new("git")
                         .args(["commit", "-am", &commit.trim()])
                         .output()
                         .expect("Commit");
-                        println!("Git Commit -m Added");
 
 
                 Command::new("git")
                         .args(["branch","-M","main"])
                         .output()
                         .expect("Add .");
-                        println!("Git branch -M main Added");
 
                 Command::new("git")
                         .args(["remote", "remove", "origin"])
                         .output()
                         .expect("Remote Set-Url Origin");
-                        println!("Remote Remove Origin Added ");
 
-                // println!("{}",tokenf.trim());
                 Command::new("git")
                         .args(["remote", "add", "origin", &tokenf.trim() ])
                         .output()
                         .expect("Remote Set-Url Origin");
-                        println!("Remote Add Origin Added {}",&tokenf);
 
 
                 Command::new("git")
                         .args(["pull","--rebase","origin","main"])
                         .output()
                         .expect("Pull Origin Main");
-                        println!("Push -u Origin Main Added");
                 
 
                 Command::new("git")
                         .args(["push","-u","origin","main"])
                         .output()
                         .expect("Push Origin Main");
-                        println!("Push -u Origin Main Added");
-                
-                // let mut tokenres = token.replace(&token, "");
-                // let dirl1 : String = "/home/".to_owned() + &{pc_name.trim()} + "/Documents/GitScriptLogs.txt";
-                // let dirl1 : String = dirl1.trim().to_owned();
-                // fs::remove_file("dirl1");
-                // let mut file = File::create(&dirl1.trim()).unwrap();
-                // let datanew = name + " " +&email + " " + &path + " " + &repo_name.trim() + " " + &tokenres.trim();
-                // file.write(datanew.as_bytes());
 
                 break;
                 
