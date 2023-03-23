@@ -44,6 +44,9 @@ fn main() {
                 let binding = "https://".to_owned()+&{name.clone()}+":"+{&token.trim()}+"@github.com/"+&{name.clone()}+"/"+{&repo_name_git.trim()};
                 let tokenf = binding.trim();
 
+                println!("Loading...");
+
+
                 Command::new("git")
                         .args(["config", "--global" , "user.name" , &name.trim()])
                         .output()
@@ -100,6 +103,10 @@ fn main() {
                         .args(["push","-u","origin","main"])
                         .output()
                         .expect("Push Origin Main");
+
+                Command::new("Clear")
+                        .output()
+                        .expect("");
 
                 break;
                 
