@@ -1,10 +1,17 @@
 # Git-Script
 Upload your files to GitHub fast
 
+Create Repo.
+First you must create a Repo but don't Add a Readme File.
+
 How can i get Token?
 If this is your first time using this, the most important thing is your GitHub Account Token. How can i get this?
 Open your GitHub Account > Setting > Developer Settings > Personal Acces Tokens > Tokens ( Classic ) > Generate New Token ( Classic ) 
-Select all options go down and Generate Token and Copy it.
+Select all options go down and Generate Token and Copy it. After 30 days you must change you Token.
+
+How can i change Token?
+Open your GitHub Account > Setting > Developer Settings > Personal Acces Tokens > Delete Token
+After delete create new token, copy it, Open you File Manager go /home/UserName/documents/GitScriptLogs.txt remove old token and paste new one
 
 How can i run this code?
 First of all, Rust must be installed on your computer. How can i install Rust? See this link : https://www.rust-lang.org/tools/install
