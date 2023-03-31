@@ -2,11 +2,10 @@ use std::fs::File;
 use std::io::Write;
 use std::{fs, env, io};
 use std::path::Path;
-use std::process::Command;
+use std::process::{Command, Stdio};
 fn main() {
-        println!("Enter your Pc's UserName");
-        let mut pc_name = String::new();
-        io::stdin().read_line(&mut pc_name).unwrap();
+        let whoami = Command::new("whoami").stdout(Stdio::piped()).output().unwrap();
+        let pc_name = String::from_utf8(whoami.stdout).unwrap();
         let dirl : String = "/home/".to_owned() + &{pc_name.trim()} + "/Documents";
         let dirl = dirl.trim();
         let paths = fs::read_dir(&dirl)
