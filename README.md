@@ -1,6 +1,9 @@
 # Git-Script
 Upload your files to GitHub fast
 
+TESTED ON ARCH-LINUX !!!
+
+
 Create Repo.
 First you must create a Repo but don't Add a Readme File.
 
